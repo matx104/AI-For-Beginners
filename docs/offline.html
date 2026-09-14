@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 101 — Study Edition · QALAM</title>
+<meta name="description" content="A digested study edition — the petal template of the QALAM knowledge tree. Edit the OG tags below for your course.">
+<meta name="theme-color" content="#0B0F0E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QALAM — القلم">
+<meta property="og:title" content="AI 101 — Study Edition · QALAM">
+<meta property="og:description" content="Microsoft's AI for Beginners, recovered by QALAM.">
+<meta property="og:image" content="https://matx104.github.io/AI-For-Beginners/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="img/logo.svg">
+<style>
+/* ============================================================
+   Security 101 — Study Edition · a QALAM petal
+   Court palette: obsidian · dark emerald · gold. Vanilla CSS.
+   ============================================================ */
+
+:root {
+  --obsidian: #0B0F0E;
+  --panel: #111816;
+  --panel-raised: #16201D;
+  --emerald-deep: #14532D;
+  --emerald: #1B4332;
+  --emerald-bright: #2D6A4F;
+  --gold: #C9A227;
+  --gold-soft: #E4C25C;
+  --text: #E8F0EC;
+  --muted: #9CB0A8;
+  --line: rgba(45, 106, 79, 0.35);
+  --line-soft: rgba(45, 106, 79, 0.18);
+  --radius: 14px;
+  --pill: 999px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(120% 70% at 50% -20%, rgba(27, 67, 50, 0.5), transparent 70%),
+    var(--obsidian);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell { width: 100%; max-width: 980px; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2rem); }
+header.hero, main, footer.foot { padding-inline: clamp(1rem, 4vw, 2rem); }
+header.hero, main { max-width: 980px; margin-inline: auto; }
+
+a { color: var(--gold-soft); }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- hero --------------------------------------------------------- */
+
+.hero {
+  padding-block: clamp(2.5rem, 7vw, 4rem) 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.hero__eyebrow {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero__title {
+  margin: 0.6rem 0 0;
+  font-size: clamp(2.4rem, 8vw, 3.6rem);
+  letter-spacing: 0.04em;
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero__sub { margin: 0.7rem 0 0; color: var(--muted); font-size: 1.05rem; }
+.hero__sub em { color: var(--text); font-style: normal; font-weight: 600; }
+
+.progress { margin: 1.8rem auto 0; max-width: 460px; text-align: left; }
+.progress__label { margin: 0 0 0.45rem; font-size: 0.88rem; color: var(--muted); }
+.progress__label strong { color: var(--gold-soft); font-variant-numeric: tabular-nums; }
+.progress__bar {
+  height: 10px;
+  border-radius: var(--pill);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.progress__fill {
+  height: 100%;
+  width: 0%;
+  border-radius: var(--pill);
+  background: linear-gradient(90deg, var(--emerald-bright), var(--gold));
+  transition: width 0.5s cubic-bezier(0.25, 0.8, 0.35, 1);
+}
+
+.hero__meta {
+  margin: 1.4rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+}
+.hero__meta a { color: var(--muted); text-decoration: none; }
+.hero__meta a:hover { color: var(--gold-soft); }
+
+/* ---------- creed + modules ---------------------------------------------- */
+
+.creed {
+  margin: 1.6rem 0 2rem;
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: linear-gradient(90deg, rgba(20, 83, 45, 0.25), transparent 75%);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.creed em { color: var(--text); font-style: normal; }
+
+.modules { display: flex; flex-direction: column; gap: 1rem; }
+
+.mod__h { margin: 0; }
+.mod__head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.95rem 1.15rem;
+  background: linear-gradient(160deg, var(--panel-raised), var(--panel) 60%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.mod__head:hover { border-color: var(--emerald-bright); }
+.mod--open .mod__head {
+  border-color: var(--gold);
+  box-shadow: 0 0 26px -10px rgba(201, 162, 39, 0.45);
+}
+.mod__num {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  background: rgba(201, 162, 39, 0.1);
+  border: 1px solid var(--line);
+  border-radius: var(--pill);
+  padding: 0.18rem 0.6rem;
+}
+.mod__title { flex: 1; font-size: 1.02rem; }
+.mod__done { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+.mod__done b { color: var(--gold-soft); font-weight: 600; }
+.mod__chev { color: var(--gold); transition: transform 0.35s ease; }
+.mod--open .mod__chev { transform: rotate(180deg); }
+
+.mod__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.5s cubic-bezier(0.25, 0.8, 0.35, 1), visibility 0s 0.5s;
+}
+.mod--open .mod__body {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.5s cubic-bezier(0.25, 0.8, 0.35, 1);
+}
+.mod__scroller { overflow: hidden; min-height: 0; }
+.mod__blurb { margin: 1rem 0.2rem 0.4rem; color: var(--muted); font-size: 0.92rem; }
+
+/* ---------- lessons -------------------------------------------------------- */
+
+.lesson {
+  margin-top: 0.7rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--panel);
+  overflow: hidden;
+  transition: border-color 0.18s ease;
+}
+.lesson:hover { border-color: var(--emerald-bright); }
+.lesson--done { border-color: rgba(201, 162, 39, 0.45); }
+.lesson--quiz { background: linear-gradient(160deg, rgba(20, 83, 45, 0.35), var(--panel)); }
+
+.lesson__row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.lesson__check {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--emerald-bright);
+  background: var(--obsidian);
+  display: grid;
+  place-items: center;
+  color: transparent;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.lesson--done .lesson__check {
+  border-color: var(--gold);
+  background: rgba(201, 162, 39, 0.18);
+  color: var(--gold-soft);
+}
+.lesson__id {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  flex: none;
+  width: 2.4rem;
+}
+.lesson__name { flex: 1; font-weight: 600; line-height: 1.35; }
+.lesson__mins {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.lesson__chev { color: var(--muted); font-size: 0.8rem; transition: transform 0.3s ease; }
+.lesson--open .lesson__chev { transform: rotate(90deg); color: var(--gold); }
+
+.lesson__detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.4s ease, visibility 0s 0.4s;
+}
+.lesson--open .lesson__detail {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.4s ease;
+}
+.lesson__inner { overflow: hidden; min-height: 0; }
+.lesson__pad { padding: 0 1rem 1rem 5rem; }
+.lesson__objective { margin: 0 0 0.6rem; color: var(--muted); font-size: 0.92rem; }
+.lesson__objective::before {
+  content: "Objective — ";
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.keys { list-style: none; margin: 0 0 0.8rem; padding: 0; display: grid; gap: 0.45rem; }
+.keys li {
+  position: relative;
+  padding: 0.5rem 0.75rem 0.5rem 1.9rem;
+  background: var(--panel-raised);
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.keys li::before { content: "✒"; position: absolute; left: 0.7rem; color: var(--gold); }
+.lesson__read {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--gold);
+  border-radius: var(--pill);
+  background: rgba(201, 162, 39, 0.08);
+  color: var(--gold-soft);
+  text-decoration: none;
+  font-size: 0.84rem;
+  transition: background 0.15s ease;
+}
+.lesson__read:hover { background: rgba(201, 162, 39, 0.16); }
+
+.notice {
+  margin: 1.5rem 0 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--muted);
+}
+
+/* ---------- after + footer -------------------------------------------------- */
+
+.after {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: radial-gradient(120% 140% at 0% 0%, rgba(20, 83, 45, 0.4), transparent 60%), var(--panel);
+}
+.after h2 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+.after p { margin: 0; color: var(--muted); }
+
+.foot {
+  margin-top: 3rem;
+  padding-block: 2.25rem 2.75rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.foot__motto { margin: 0; }
+.foot__motto strong { color: var(--gold); letter-spacing: 0.04em; }
+.foot__sub { margin: 0.6rem 0 0; color: var(--muted); font-size: 0.85rem; line-height: 1.7; }
+.foot__links { margin: 1rem 0 0; }
+.reset {
+  font: inherit;
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--pill);
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.reset:hover { color: var(--gold-soft); border-color: var(--gold); }
+
+@media (max-width: 560px) {
+  .lesson__pad { padding-left: 1rem; }
+  .lesson__mins { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* ---------- print: the study sheet ------------------------------------------- */
+
+@media print {
+  body { background: #fff; color: #111; }
+  .hero { border: 0; }
+  .hero__title { color: #6b5410; -webkit-text-fill-color: #6b5410; background: none; }
+  .hero__sub, .creed, .hero__meta, .foot__links, .lesson__chev, .lesson__read { color: #333; }
+  .mod__head { background: #fff; border-color: #999; cursor: default; }
+  .mod__body, .lesson__detail { grid-template-rows: 1fr !important; visibility: visible !important; }
+  .mod__scroller, .lesson__inner { overflow: visible; }
+  .lesson, .keys li { background: #fff; border-color: #bbb; }
+  .keys li::before { color: #000; }
+  .lesson__check { border-color: #000; color: transparent; }
+  .lesson--done .lesson__check { color: #000; }
+  .lesson, .keys li { break-inside: avoid; }
+}
+
+</style>
+</head>
+<body>
+<p style="text-align:center;margin:0;padding:.6rem 1rem;border-bottom:1px solid rgba(45,106,79,.35);font:600 .78rem/1.4 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#9CB0A8;">Offline edition · saved from the living library · the online copy always knows more</p>
+
+<header class="hero">
+  <p class="hero__eyebrow" id="hero-eyebrow">QALAM presents · a digested study edition</p>
+  <h1 class="hero__title" id="hero-title">Course Title</h1>
+  <p class="hero__sub" id="hero-sub">The original course — recovered, compressed, free.</p>
+
+  <div class="progress" id="progress">
+    <p class="progress__label"><strong id="progress-pct">0%</strong> inscribed · <span id="progress-count">0 of 0 lessons</span></p>
+    <div class="progress__bar" role="progressbar" aria-labelledby="progress-pct" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+      <div class="progress__fill" id="progress-fill"></div>
+    </div>
+  </div>
+
+  <nav class="hero__meta" aria-label="About this edition">
+    <a id="meta-source" href="#" target="_blank" rel="noopener noreferrer">🏛️ original</a>
+    <a id="meta-fork" href="https://github.com/matx104/QALAM" target="_blank" rel="noopener noreferrer">🍴 this fork</a>
+    <a href="https://matx104.github.io/QALAM/" target="_blank" rel="noopener noreferrer">🖊️ the QALAM tree</a>
+  </nav>
+</header>
+
+<main>
+  <p class="creed"><span id="credit-line">Curriculum © its author · its license · digested with credit, shared free.</span>
+  Your progress is stored in <em>your</em> browser, nowhere else.</p>
+
+  <div id="modules" class="modules"></div>
+  <p class="notice" id="notice" hidden></p>
+
+  <section class="after" id="after" hidden>
+    <h2>After the course</h2>
+    <p></p>
+  </section>
+</main>
+
+<footer class="foot">
+  <p class="foot__motto"><strong>Study Edition</strong> · a petal of <a href="https://matx104.github.io/QALAM/" target="_blank" rel="noopener noreferrer">QALAM</a></p>
+  <p class="foot__sub">Digested with credit, shared free.<br>Knowledge shared is knowledge multiplied.</p>
+  <p class="foot__links"><a class="reset" href="offline.html" style="text-decoration:none;display:inline-block;">⬇ Save this petal — offline copy</a> &nbsp; <button type="button" class="reset" id="reset">Reset my progress</button></p>
+</footer>
+
+<script>window.__COURSE__ = {"course": {"title": "AI for Beginners", "eyebrow": "QALAM presents · Microsoft's curriculum, digested", "subtitle": "The broad tour: symbolic AI, neural nets from the perceptron up, vision, NLP and ethics.", "source_name": "Microsoft (AI for Beginners)", "source_url": "https://github.com/microsoft/AI-For-Beginners", "fork_url": "https://github.com/matx104/AI-For-Beginners", "credit_line": "Curriculum © Microsoft · MIT License · digested with credit, shared free.", "after_title": "After the course", "after_note": "The GenAI and AI Agents petals in this tree take you from here to modern LLM applications.", "og_url": "https://matx104.github.io/AI-For-Beginners/", "og_image": "img/og.png"}, "modules": [{"id": "m1", "num": 1, "title": "Introduction & symbolic AI", "blurb": "The history, and the 'good old fashioned AI' that reasoned with symbols.", "lessons": [{"id": "1", "title": "Introduction and history of AI", "objective": "Where AI began and what it promised.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/1-Intro/README.md", "keys": ["Two traditions: symbolic reasoning and neural learning", "Two AI winters: hype wrote checks compute couldn't cash", "Today's LLMs are the neural tradition, scaled past recognition"]}, {"id": "2", "title": "Knowledge representation and expert systems", "objective": "GOFAI: logic, ontology, rules.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/2-Symbolic/README.md", "keys": ["Knowledge graphs and ontologies: meaning as structure", "Expert systems: IF-THEN rules distilled from experts", "Symbolic AI is explainable but brittle; neural is fluid but opaque"]}]}, {"id": "m2", "num": 2, "title": "Introduction to neural networks", "blurb": "Perceptrons, backprop, and frameworks — built from scratch.", "lessons": [{"id": "3", "title": "The perceptron", "objective": "The neuron as a learned decision.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/3-NeuralNetworks/03-Perceptron/README.md", "keys": ["Perceptron: weighted inputs + bias + threshold = decision", "Learning = adjusting weights by the error", "One neuron draws one line; deep nets draw worlds"]}, {"id": "4", "title": "Multi-layer perceptron and your own framework", "objective": "Build a neural net from first principles.", "minutes": 60, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/3-NeuralNetworks/04-OwnFramework/README.md", "keys": ["Stack layers between input and output; nonlinearity is the secret", "Backpropagation: calculus blame, distributed backwards", "Building your own framework once teaches what PyTorch abstracts"]}, {"id": "5", "title": "Frameworks — PyTorch and TensorFlow", "objective": "Real frameworks, and overfitting.", "minutes": 60, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/3-NeuralNetworks/05-Frameworks/README.md", "keys": ["Tensors + autograd + optimizers = the framework contract", "Train/val split exists to catch overfitting, not to decorate notebooks", "Overfitting: memorizing the textbook and failing the exam"]}]}, {"id": "m3", "num": 3, "title": "Computer vision", "blurb": "From OpenCV to CNN architectures, transfer learning, GANs, detection and segmentation.", "lessons": [{"id": "6", "title": "Intro to computer vision — OpenCV", "objective": "Images as data.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/06-IntroCV/README.md", "keys": ["An image is a tensor of pixels; vision is math on grids", "OpenCV: filters, edges, transforms — the pre-deep-learning toolbox", "Convolutions detect; pooling summarizes"]}, {"id": "7", "title": "Convolutional neural networks and architectures", "objective": "CNNs and the famous families.", "minutes": 60, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/07-ConvNets/README.md", "keys": ["Conv layers learn local patterns; stacking learns hierarchy: edges → parts → objects", "LeNet→AlexNet→ResNet: each generation fixed a scaling problem", "ResNet's skip connections: let gradients flow or depth dies"]}, {"id": "8", "title": "Pre-trained networks and transfer learning", "objective": "Stand on trained shoulders.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/08-TransferLearning/README.md", "keys": ["Transfer learning: reuse a trained backbone, retrain the head", "Freeze, then fine-tune — the two-speed strategy", "Data augmentation multiplies your dataset for free"]}, {"id": "9", "title": "Autoencoders and VAEs", "objective": "Learning compressed representations.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/09-Autoencoders/README.md", "keys": ["Autoencoder: squeeze through a bottleneck, reconstruct", "The bottleneck is the meaning — a learned compression", "VAEs make the latent space smooth: sample new examples"]}, {"id": "10", "title": "Generative adversarial networks and style transfer", "objective": "AI that paints.", "minutes": 60, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/10-GANs/README.md", "keys": ["GAN: a forger and a detective improving against each other", "Training GANs is balancing act — collapse is the default", "Style transfer: content from one image, style from another"]}, {"id": "11", "title": "Object detection", "objective": "What is where.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/11-ObjectDetection/README.md", "keys": ["Detection = classification + localization per object", "Anchor boxes and IoU: the geometry of 'found it'", "YOLO trades a little accuracy for a lot of speed"]}, {"id": "12", "title": "Semantic segmentation — U-Net", "objective": "Label every pixel.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/12-Segmentation/README.md", "keys": ["Segmentation: per-pixel classification, image understanding's endgame", "U-Net: encode context, decode precision, skip the middle", "Medicine and self-driving live on segmentation"]}]}, {"id": "m4", "num": 4, "title": "Natural language processing", "blurb": "From bag-of-words to Transformers and few-shot LLMs.", "lessons": [{"id": "13", "title": "Text representation — BoW and TF-IDF", "objective": "Text as counts.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/13-TextRep/README.md", "keys": ["Bag-of-words: presence as meaning, order discarded", "TF-IDF rewards the rare and punishes the common", "Representations decide ceilings — choose them consciously"]}, {"id": "14", "title": "Word embeddings — Word2Vec and GloVe", "objective": "Meaning as geometry.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/14-Embeddings/README.md", "keys": ["Embeddings put meaning into vectors: king − man + woman ≈ queen", "Similar words cluster; analogies are directions", "Embeddings power search, recommendations, RAG — everything"]}, {"id": "15", "title": "Language modeling and training embeddings", "objective": "Predicting the next word.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/15-LanguageModeling/README.md", "keys": ["Language modeling: guess the next token — the game that ate the world", "CBOW/skip-gram train embeddings on cheap supervision", "Every LLM is this lesson, scaled a billion times"]}, {"id": "16", "title": "Recurrent neural networks", "objective": "Sequences with memory.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/16-RNN/README.md", "keys": ["RNNs carry a hidden state across time steps", "Vanishing gradients: long memories fade", "LSTM/GRU gates fight forgetting — imperfectly"]}, {"id": "17", "title": "Generative recurrent networks", "objective": "Text generation, the old way.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/17-GenerativeNetworks/README.md", "keys": ["Character-level generation: the model dreams one letter at a time", "Temperature: the creativity dial", "Sampling loops: output becomes input becomes output"]}, {"id": "18", "title": "Transformers and BERT", "objective": "Attention is all you need.", "minutes": 60, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/18-Transformers/README.md", "keys": ["Attention: every token looks at every token — no recurrence", "Positional encodings restore the order attention forgot", "BERT reads both ways; GPT writes one way; the world split in two"]}, {"id": "19", "title": "Named entity recognition", "objective": "Finding who, where, when.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/19-NER/README.md", "keys": ["NER: tag entities token by token (BIO scheme)", "Structured extraction turns text into databases", "NER is where NLP meets business value first"]}, {"id": "20", "title": "Large language models and prompt programming", "objective": "The LLM era begins.", "minutes": 60, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/20-LangModels/README.md", "keys": ["Scale changed behavior: few-shot learning emerged uninvited", "Prompting is programming the model in its own language", "This lesson is the bridge to the GenAI petal"]}]}, {"id": "m5", "num": 5, "title": "Other AI techniques", "blurb": "Evolution and reward: the roads less traveled.", "lessons": [{"id": "21", "title": "Genetic algorithms", "objective": "Evolution as an optimizer.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/6-Other/21-GeneticAlgorithms/README.md", "keys": ["Selection, crossover, mutation: optimize anything with a fitness score", "Populations explore in parallel where gradient descent walks one path", "Great where gradients don't exist — schedules, architectures, art"]}, {"id": "22", "title": "Deep reinforcement learning", "objective": "CartPole and beyond.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/6-Other/22-DeepRL/README.md", "keys": ["Deep RL: neural nets approximating value or policy", "Explore/exploit and the sparse-reward desert", "RL wins games; the real world is still mostly supervised"]}, {"id": "23", "title": "Multi-agent systems", "objective": "Societies of simple agents.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/6-Other/23-MultiagentSystems/README.md", "keys": ["Simple agents + local rules = complex collective behavior", "Emergence: the flock is smarter than the bird", "The intellectual ancestor of today's multi-agent LLMs"]}]}, {"id": "m6", "num": 6, "title": "AI ethics & extras", "blurb": "The chapter that makes the rest safe to use.", "lessons": [{"id": "24", "title": "AI ethics and responsible AI", "objective": "Fairness, transparency, accountability.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/7-Ethics/README.md", "keys": ["Responsible AI principles: fairness, reliability, privacy, inclusiveness, transparency, accountability", "Every design decision is an ethical decision wearing overalls", "The last lesson is the one the field keeps failing"]}, {"id": "25", "title": "Multi-modal networks — CLIP and VQGAN", "objective": "Images and text in one space.", "minutes": 45, "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/X-Extras/X1-MultiModal/README.md", "keys": ["CLIP: one embedding space for pixels and words", "Cross-modal search: query images with sentences", "Multimodality is where AI stops being blind"]}]}]};</script>
+<script type="module">
+/* ============================================================
+   THE PETAL TEMPLATE — one course, digested, tracked, free.
+   Fill content/course.json · enable Pages · ship.
+
+   Vanilla ES modules. Zero dependencies. Content-as-data:
+   nothing about the course is hardcoded here — the JSON is
+   the course, this file is the printing press.
+   ============================================================ */
+
+const dom = {
+  eyebrow:   document.getElementById('hero-eyebrow'),
+  title:     document.getElementById('hero-title'),
+  sub:       document.getElementById('hero-sub'),
+  metaSource:document.getElementById('meta-source'),
+  metaFork:  document.getElementById('meta-fork'),
+  credit:    document.getElementById('credit-line'),
+  afterBox:  document.getElementById('after'),
+  modules:   document.getElementById('modules'),
+  notice:    document.getElementById('notice'),
+  pct:       document.getElementById('progress-pct'),
+  count:     document.getElementById('progress-count'),
+  bar:       document.getElementById('progress-bar'),
+  fill:      document.getElementById('progress-fill'),
+  reset:     document.getElementById('reset')
+};
+
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined && text !== null) node.textContent = String(text);
+  return node;
+}
+
+function safeUrl(value) {
+  if (typeof value !== 'string' || value === '') return null;
+  try {
+    const url = new URL(value, window.location.href);
+    return (url.protocol === 'https:' || url.protocol === 'http:') ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
+/* ---------- mastery, kept by the learner ---------------------------------- */
+
+let STORE_KEY = 'qalam-petal';
+
+function loadProgress() {
+  try {
+    const raw = JSON.parse(window.localStorage.getItem(STORE_KEY) || '{}');
+    return (raw && typeof raw === 'object') ? raw : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveProgress(done) {
+  try {
+    window.localStorage.setItem(STORE_KEY, JSON.stringify(done));
+  } catch {
+    /* private mode — progress lives for this visit only */
+  }
+}
+
+let done = {};
+let APP = null;
+
+/* ---------- rendering ------------------------------------------------------- */
+
+let openModule = null;
+let openLesson = null;
+
+function allLessons() {
+  return APP.modules.flatMap((m) => m.lessons);
+}
+
+function renderProgress() {
+  const lessons = allLessons();
+  const complete = lessons.filter((l) => done[l.id]).length;
+  const pct = lessons.length ? Math.round((complete / lessons.length) * 100) : 0;
+  dom.pct.textContent = `${pct}%`;
+  dom.count.textContent = `${complete} of ${lessons.length} lessons`;
+  dom.fill.style.width = `${pct}%`;
+  dom.bar.setAttribute('aria-valuenow', String(pct));
+}
+
+function toggleLesson(id) {
+  openLesson = openLesson === id ? null : id;
+  for (const lesson of dom.modules.querySelectorAll('.lesson')) {
+    lesson.classList.toggle('lesson--open', lesson.dataset.lesson === openLesson);
+  }
+}
+
+function toggleModule(id) {
+  openModule = openModule === id ? null : id;
+  for (const mod of dom.modules.querySelectorAll('.mod')) {
+    mod.classList.toggle('mod--open', mod.dataset.module === openModule);
+  }
+}
+
+function buildLesson(lesson) {
+  const isDone = Boolean(done[lesson.id]);
+  const node = el('article', 'lesson' +
+    (isDone ? ' lesson--done' : '') +
+    (lesson.quiz ? ' lesson--quiz' : ''));
+  node.dataset.lesson = lesson.id;
+
+  const row = el('button', 'lesson__row');
+  row.type = 'button';
+  row.setAttribute('aria-expanded', 'false');
+  row.style.position = 'relative';
+
+  const check = el('span', 'lesson__check', '✓');
+  check.setAttribute('aria-hidden', 'true');
+
+  row.append(
+    check,
+    el('span', 'lesson__id', lesson.id),
+    el('span', 'lesson__name', lesson.title),
+    el('span', 'lesson__mins', lesson.quiz ? 'quiz' : `~${lesson.minutes || 30} min`),
+    el('span', 'lesson__chev', '▸')
+  );
+  row.addEventListener('click', () => toggleLesson(lesson.id));
+
+  /* the invisible check overlay: mark done without opening */
+  const checkButton = el('button');
+  checkButton.type = 'button';
+  checkButton.setAttribute('aria-pressed', String(isDone));
+  checkButton.setAttribute('aria-label',
+    `Mark “${lesson.title}” as ${isDone ? 'not done' : 'done'}`);
+  checkButton.style.cssText =
+    'position:absolute;left:1rem;margin-top:0.55rem;width:1.5rem;height:1.5rem;' +
+    'opacity:0;cursor:pointer;';
+  checkButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+    if (done[lesson.id]) delete done[lesson.id];
+    else done[lesson.id] = true;
+    saveProgress(done);
+    node.classList.toggle('lesson--done', Boolean(done[lesson.id]));
+    checkButton.setAttribute('aria-pressed', String(Boolean(done[lesson.id])));
+    refresh();
+  });
+  row.append(checkButton);
+
+  const detail = el('div', 'lesson__detail');
+  const inner = el('div', 'lesson__inner');
+  const pad = el('div', 'lesson__pad');
+
+  if (lesson.objective) pad.append(el('p', 'lesson__objective', lesson.objective));
+
+  if (Array.isArray(lesson.keys) && lesson.keys.length) {
+    const keys = el('ul', 'keys');
+    for (const key of lesson.keys) keys.append(el('li', null, key));
+    pad.append(keys);
+  }
+
+  const href = safeUrl(lesson.href);
+  if (href) {
+    const read = el('a', 'lesson__read');
+    read.href = href;
+    read.target = '_blank';
+    read.rel = 'noopener noreferrer';
+    read.append(el('span', null, lesson.quiz ? 'Take the quiz' : 'Read the full lesson'),
+                el('span', null, ' ↗'));
+    pad.append(read);
+  }
+
+  inner.append(pad);
+  detail.append(inner);
+  node.append(row, detail);
+  return node;
+}
+
+function renderModules() {
+  dom.modules.textContent = '';
+
+  for (const mod of APP.modules) {
+    const section = el('section', 'mod');
+    section.dataset.module = mod.id;
+
+    const heading = el('h2', 'mod__h');
+    const head = el('button', 'mod__head');
+    head.type = 'button';
+    head.setAttribute('aria-expanded', 'false');
+    head.setAttribute('aria-controls', `mod-${mod.id}`);
+    head.append(
+      el('span', 'mod__num', `Module ${mod.num}`),
+      el('span', 'mod__title', mod.title),
+      el('span', 'mod__done'),
+      el('span', 'mod__chev', '▾')
+    );
+    head.addEventListener('click', () => toggleModule(mod.id));
+
+    const body = el('div', 'mod__body');
+    body.id = `mod-${mod.id}`;
+    body.setAttribute('role', 'region');
+
+    const scroller = el('div', 'mod__scroller');
+    if (mod.blurb) scroller.append(el('p', 'mod__blurb', mod.blurb));
+    for (const lesson of mod.lessons) scroller.append(buildLesson(lesson));
+
+    body.append(scroller);
+    heading.append(head);
+    section.append(heading, body);
+    dom.modules.append(section);
+  }
+}
+
+function refresh() {
+  if (!APP) return;
+  renderProgress();
+  for (const mod of dom.modules.querySelectorAll('.mod')) {
+    const meta = APP.modules.find((m) => m.id === mod.dataset.module);
+    const complete = meta.lessons.filter((l) => done[l.id]).length;
+    const label = mod.querySelector('.mod__done');
+    label.textContent = '';
+    label.append(el('b', null, complete), document.createTextNode(`/${meta.lessons.length}`));
+  }
+}
+
+/* ---------- identity, straight from the JSON -------------------------------- */
+
+function renderIdentity(course) {
+  if (course.title) {
+    document.title = `${course.title} · Study Edition · QALAM`;
+    if (dom.title) dom.title.textContent = course.title;
+  }
+  if (dom.eyebrow && course.eyebrow) dom.eyebrow.textContent = course.eyebrow;
+  if (dom.sub && course.subtitle) dom.sub.textContent = course.subtitle;
+  if (dom.metaSource && course.source_name) {
+    dom.metaSource.textContent = `🏛️ original: ${course.source_name}`;
+    dom.metaSource.href = safeUrl(course.source_url) || '#';
+  }
+  if (dom.metaFork && course.fork_url) {
+    dom.metaFork.href = safeUrl(course.fork_url) || '#';
+  }
+  if (dom.credit && course.credit_line) dom.credit.textContent = course.credit_line;
+
+  if (dom.afterBox && (course.after_note || course.after_links)) {
+    dom.afterBox.hidden = false;
+    const h2 = dom.afterBox.querySelector('h2');
+    if (h2 && course.after_title) h2.textContent = course.after_title;
+    const p = dom.afterBox.querySelector('p');
+    if (p) p.textContent = course.after_note || '';
+    if (Array.isArray(course.after_links) && course.after_links.length) {
+      const row = el('p'); row.style.marginTop = '0.8rem';
+      for (const link of course.after_links) {
+        const href = safeUrl(link.url);
+        if (!href) continue;
+        const a = el('a', null, link.label || link.url);
+        a.href = href;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        row.append(a, document.createTextNode('  '));
+      }
+      dom.afterBox.append(row);
+    }
+  } else if (dom.afterBox) {
+    dom.afterBox.hidden = true;
+  }
+}
+
+/* ---------- boot ---------------------------------------------------------------- */
+
+async function boot() {
+  if (dom.reset) {
+    dom.reset.addEventListener('click', () => {
+      done = {};
+      saveProgress(done);
+      renderModules();
+      refresh();
+    });
+  }
+
+  try {
+    const data = (window.__COURSE__ && typeof window.__COURSE__ === 'object')
+      ? window.__COURSE__
+      : await (async () => {
+          const res = await fetch('content/course.json', { cache: 'no-cache' });
+          if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+          return res.json();
+        })();
+    APP = data;
+
+    STORE_KEY = `qalam-petal-${(data.course && data.course.title || 'petal')
+      .toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40)}`;
+    done = loadProgress();
+
+    renderIdentity(data.course || {});
+    renderModules();
+    refresh();
+  } catch (error) {
+    console.error('Petal: could not load the course —', error);
+    dom.notice.textContent =
+      `The course could not be loaded from content/course.json: ${error.message}. ` +
+      'Fill the JSON per the README, and the page grows from it.';
+    dom.notice.hidden = false;
+  }
+}
+
+boot();
+
+</script>
+<noscript>
+  <p class="notice">This study edition renders from <code>content/course.json</code> and needs JavaScript.</p>
+</noscript>
+
+</body>
+</html>

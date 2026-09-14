@@ -1,0 +1,128 @@
+{
+  "course": {
+    "title": "AI for Beginners",
+    "eyebrow": "QALAM presents · Microsoft's curriculum, digested",
+    "subtitle": "The broad tour: symbolic AI, neural nets from the perceptron up, vision, NLP and ethics.",
+    "source_name": "Microsoft (AI for Beginners)",
+    "source_url": "https://github.com/microsoft/AI-For-Beginners",
+    "fork_url": "https://github.com/matx104/AI-For-Beginners",
+    "credit_line": "Curriculum © Microsoft · MIT License · digested with credit, shared free.",
+    "after_title": "After the course",
+    "after_note": "The GenAI and AI Agents petals in this tree take you from here to modern LLM applications.",
+    "og_url": "https://matx104.github.io/AI-For-Beginners/",
+    "og_image": "img/og.png"
+  },
+  "modules": [
+    {
+      "id": "m1", "num": 1, "title": "Introduction & symbolic AI",
+      "blurb": "The history, and the 'good old fashioned AI' that reasoned with symbols.",
+      "lessons": [
+        {"id": "1", "title": "Introduction and history of AI", "objective": "Where AI began and what it promised.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/1-Intro/README.md",
+         "keys": ["Two traditions: symbolic reasoning and neural learning", "Two AI winters: hype wrote checks compute couldn't cash", "Today's LLMs are the neural tradition, scaled past recognition"]},
+        {"id": "2", "title": "Knowledge representation and expert systems", "objective": "GOFAI: logic, ontology, rules.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/2-Symbolic/README.md",
+         "keys": ["Knowledge graphs and ontologies: meaning as structure", "Expert systems: IF-THEN rules distilled from experts", "Symbolic AI is explainable but brittle; neural is fluid but opaque"]}
+      ]
+    },
+    {
+      "id": "m2", "num": 2, "title": "Introduction to neural networks",
+      "blurb": "Perceptrons, backprop, and frameworks — built from scratch.",
+      "lessons": [
+        {"id": "3", "title": "The perceptron", "objective": "The neuron as a learned decision.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/3-NeuralNetworks/03-Perceptron/README.md",
+         "keys": ["Perceptron: weighted inputs + bias + threshold = decision", "Learning = adjusting weights by the error", "One neuron draws one line; deep nets draw worlds"]},
+        {"id": "4", "title": "Multi-layer perceptron and your own framework", "objective": "Build a neural net from first principles.", "minutes": 60,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/3-NeuralNetworks/04-OwnFramework/README.md",
+         "keys": ["Stack layers between input and output; nonlinearity is the secret", "Backpropagation: calculus blame, distributed backwards", "Building your own framework once teaches what PyTorch abstracts"]},
+        {"id": "5", "title": "Frameworks — PyTorch and TensorFlow", "objective": "Real frameworks, and overfitting.", "minutes": 60,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/3-NeuralNetworks/05-Frameworks/README.md",
+         "keys": ["Tensors + autograd + optimizers = the framework contract", "Train/val split exists to catch overfitting, not to decorate notebooks", "Overfitting: memorizing the textbook and failing the exam"]}
+      ]
+    },
+    {
+      "id": "m3", "num": 3, "title": "Computer vision",
+      "blurb": "From OpenCV to CNN architectures, transfer learning, GANs, detection and segmentation.",
+      "lessons": [
+        {"id": "6", "title": "Intro to computer vision — OpenCV", "objective": "Images as data.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/06-IntroCV/README.md",
+         "keys": ["An image is a tensor of pixels; vision is math on grids", "OpenCV: filters, edges, transforms — the pre-deep-learning toolbox", "Convolutions detect; pooling summarizes"]},
+        {"id": "7", "title": "Convolutional neural networks and architectures", "objective": "CNNs and the famous families.", "minutes": 60,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/07-ConvNets/README.md",
+         "keys": ["Conv layers learn local patterns; stacking learns hierarchy: edges → parts → objects", "LeNet→AlexNet→ResNet: each generation fixed a scaling problem", "ResNet's skip connections: let gradients flow or depth dies"]},
+        {"id": "8", "title": "Pre-trained networks and transfer learning", "objective": "Stand on trained shoulders.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/08-TransferLearning/README.md",
+         "keys": ["Transfer learning: reuse a trained backbone, retrain the head", "Freeze, then fine-tune — the two-speed strategy", "Data augmentation multiplies your dataset for free"]},
+        {"id": "9", "title": "Autoencoders and VAEs", "objective": "Learning compressed representations.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/09-Autoencoders/README.md",
+         "keys": ["Autoencoder: squeeze through a bottleneck, reconstruct", "The bottleneck is the meaning — a learned compression", "VAEs make the latent space smooth: sample new examples"]},
+        {"id": "10", "title": "Generative adversarial networks and style transfer", "objective": "AI that paints.", "minutes": 60,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/10-GANs/README.md",
+         "keys": ["GAN: a forger and a detective improving against each other", "Training GANs is balancing act — collapse is the default", "Style transfer: content from one image, style from another"]},
+        {"id": "11", "title": "Object detection", "objective": "What is where.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/11-ObjectDetection/README.md",
+         "keys": ["Detection = classification + localization per object", "Anchor boxes and IoU: the geometry of 'found it'", "YOLO trades a little accuracy for a lot of speed"]},
+        {"id": "12", "title": "Semantic segmentation — U-Net", "objective": "Label every pixel.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/4-ComputerVision/12-Segmentation/README.md",
+         "keys": ["Segmentation: per-pixel classification, image understanding's endgame", "U-Net: encode context, decode precision, skip the middle", "Medicine and self-driving live on segmentation"]}
+      ]
+    },
+    {
+      "id": "m4", "num": 4, "title": "Natural language processing",
+      "blurb": "From bag-of-words to Transformers and few-shot LLMs.",
+      "lessons": [
+        {"id": "13", "title": "Text representation — BoW and TF-IDF", "objective": "Text as counts.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/13-TextRep/README.md",
+         "keys": ["Bag-of-words: presence as meaning, order discarded", "TF-IDF rewards the rare and punishes the common", "Representations decide ceilings — choose them consciously"]},
+        {"id": "14", "title": "Word embeddings — Word2Vec and GloVe", "objective": "Meaning as geometry.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/14-Embeddings/README.md",
+         "keys": ["Embeddings put meaning into vectors: king − man + woman ≈ queen", "Similar words cluster; analogies are directions", "Embeddings power search, recommendations, RAG — everything"]},
+        {"id": "15", "title": "Language modeling and training embeddings", "objective": "Predicting the next word.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/15-LanguageModeling/README.md",
+         "keys": ["Language modeling: guess the next token — the game that ate the world", "CBOW/skip-gram train embeddings on cheap supervision", "Every LLM is this lesson, scaled a billion times"]},
+        {"id": "16", "title": "Recurrent neural networks", "objective": "Sequences with memory.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/16-RNN/README.md",
+         "keys": ["RNNs carry a hidden state across time steps", "Vanishing gradients: long memories fade", "LSTM/GRU gates fight forgetting — imperfectly"]},
+        {"id": "17", "title": "Generative recurrent networks", "objective": "Text generation, the old way.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/17-GenerativeNetworks/README.md",
+         "keys": ["Character-level generation: the model dreams one letter at a time", "Temperature: the creativity dial", "Sampling loops: output becomes input becomes output"]},
+        {"id": "18", "title": "Transformers and BERT", "objective": "Attention is all you need.", "minutes": 60,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/18-Transformers/README.md",
+         "keys": ["Attention: every token looks at every token — no recurrence", "Positional encodings restore the order attention forgot", "BERT reads both ways; GPT writes one way; the world split in two"]},
+        {"id": "19", "title": "Named entity recognition", "objective": "Finding who, where, when.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/19-NER/README.md",
+         "keys": ["NER: tag entities token by token (BIO scheme)", "Structured extraction turns text into databases", "NER is where NLP meets business value first"]},
+        {"id": "20", "title": "Large language models and prompt programming", "objective": "The LLM era begins.", "minutes": 60,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/5-NLP/20-LangModels/README.md",
+         "keys": ["Scale changed behavior: few-shot learning emerged uninvited", "Prompting is programming the model in its own language", "This lesson is the bridge to the GenAI petal"]}
+      ]
+    },
+    {
+      "id": "m5", "num": 5, "title": "Other AI techniques",
+      "blurb": "Evolution and reward: the roads less traveled.",
+      "lessons": [
+        {"id": "21", "title": "Genetic algorithms", "objective": "Evolution as an optimizer.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/6-Other/21-GeneticAlgorithms/README.md",
+         "keys": ["Selection, crossover, mutation: optimize anything with a fitness score", "Populations explore in parallel where gradient descent walks one path", "Great where gradients don't exist — schedules, architectures, art"]},
+        {"id": "22", "title": "Deep reinforcement learning", "objective": "CartPole and beyond.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/6-Other/22-DeepRL/README.md",
+         "keys": ["Deep RL: neural nets approximating value or policy", "Explore/exploit and the sparse-reward desert", "RL wins games; the real world is still mostly supervised"]},
+        {"id": "23", "title": "Multi-agent systems", "objective": "Societies of simple agents.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/6-Other/23-MultiagentSystems/README.md",
+         "keys": ["Simple agents + local rules = complex collective behavior", "Emergence: the flock is smarter than the bird", "The intellectual ancestor of today's multi-agent LLMs"]}
+      ]
+    },
+    {
+      "id": "m6", "num": 6, "title": "AI ethics & extras",
+      "blurb": "The chapter that makes the rest safe to use.",
+      "lessons": [
+        {"id": "24", "title": "AI ethics and responsible AI", "objective": "Fairness, transparency, accountability.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/7-Ethics/README.md",
+         "keys": ["Responsible AI principles: fairness, reliability, privacy, inclusiveness, transparency, accountability", "Every design decision is an ethical decision wearing overalls", "The last lesson is the one the field keeps failing"]},
+        {"id": "25", "title": "Multi-modal networks — CLIP and VQGAN", "objective": "Images and text in one space.", "minutes": 45,
+         "href": "https://github.com/matx104/AI-For-Beginners/blob/main/lessons/X-Extras/X1-MultiModal/README.md",
+         "keys": ["CLIP: one embedding space for pixels and words", "Cross-modal search: query images with sentences", "Multimodality is where AI stops being blind"]}
+      ]
+    }
+  ]
+}
